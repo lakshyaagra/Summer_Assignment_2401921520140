@@ -1,0 +1,22 @@
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        int n=nums.size();
+        // pehle pehlii window calculate kro
+        double sum=0;
+        double maxAverage=INT_MIN;
+        for(int i=0;i<k;i++){
+            sum+=nums[i];
+        }
+        double average=sum/k;
+        maxAverage=max(maxAverage,average);
+        //ab ek element eliminate kro aur aage wala add kro
+        for(int i=k;i<n;i++){
+            sum-=nums[i-k];
+            sum+=nums[i];
+            average=sum/k;
+            maxAverage=max(maxAverage,average);
+        } 
+        return maxAverage;
+    }
+};
