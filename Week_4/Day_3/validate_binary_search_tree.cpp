@@ -1,0 +1,20 @@
+class Solution {
+private:
+    bool solve(TreeNode* root,long min,long max){
+        if(root==NULL) return true;
+
+        if(root->val>min && root->val<max){
+            bool left=solve(root->left,min,root->val);
+            bool right=solve(root->right,root->val,max);
+            return left && right;
+        }
+        return false;
+    }
+public:
+    bool isValidBST(TreeNode* root) {
+        long max=LONG_MAX;
+        long min=LONG_MIN;
+        bool ans=solve(root,min,max);
+        return ans;
+    }
+};
