@@ -1,0 +1,30 @@
+class Box{
+  int length,breadth;
+  Box(int length,int breadth){
+    this.length=length;
+    this.breadth=breadth;
+  }
+  void area(){
+    System.out.println("The area of the given sides are: "+(length*breadth));
+  }
+}
+
+class Box3d extends Box{
+  int height;
+  Box3d(int length,int breadth,int height){
+    super(length,breadth);
+    this.height=height;
+  }
+  void volume(){
+    System.out.println("The volume of the given sides are: "+(length*breadth*height));
+  }
+}
+
+public class Main{
+  public static void main (String[] args) {
+    Box3d obj=new Box3d(2,5,3);
+
+    obj.area();
+    obj.volume();
+  }
+}
